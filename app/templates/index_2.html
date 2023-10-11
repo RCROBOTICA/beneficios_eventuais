@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>TTW Software</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div class="col-8 m-auto pt-2 pb-2 text-center">
+        <h1>BSC MODAS PRODUTOS</h1>
+    </div>
+
+
+    <div class="col-8 m-auto pt-3 pb-2 text-center">
+        <a href="/form_2" class="btn btn-success">Cadastrar Produtos</a>
+    </div>
+
+    <div class="col-8 m-auto pt-3 pb-2 text-center">
+        <a href="/" class="btn btn-success">HOME</a>
+    </div>
+
+    <div class="col-8 m-auto pt-2 pb-2 text-center">
+      <form method="get">
+          <input type="text" id="search" name="search" class="form-control" placeholder="Digite o Nº Matricula...">
+      </form>
+    </div>
+
+   <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">REFERENCIA</th>
+            <th scope="col">PRODUTO</th>
+            <th scope="col">FORNECEDOR</th>
+            <th scope="col">DATA</th>
+            <th scope="col">MODELO</th>
+            <th scope="col">COR</th>
+            <th scope="col">GENERO</th>
+            <th scope="col">TAMANHO</th>
+            <th scope="col">PREÇO</th>
+            <th scope="col">QUANTIDADE</th>
+           
+        </tr>
+        </thead>
+        <tbody>
+        {% for dbs in db %}
+             <tr>
+            <th>{{dbs.id}}</th>
+            <td>{{dbs.referencia}}</td>
+            <td>{{dbs.nome_produto}}</td>
+            <td>{{dbs.fornecedor}}</td>
+            <td>{{dbs.data}}</td>
+            <td>{{dbs.modelo}}</td>
+            <td>{{dbs.cor}}</td>
+            <td>{{dbs.genero}}</td>
+            <td>{{dbs.tamanho}}</td>
+            <td>{{dbs.preco}}</td>
+            <td>{{dbs.quantidade}}</td>
+             <!--<td>
+                <a href="/view/{{dbs.id}}/" class="btn btn-dark">Vender</a>
+                <a href="/edit/{{dbs.id}}/" class="btn btn-primary">Editar</a>
+                <a href="/delete/{{dbs.id}}/" class="btn btn-danger btnDel">Deletar</a>
+            </td> --!>
+             </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+    </div>
+    {% load static %}
+    <script src="{% static 'javascript.js' %}"></script>
+
+</body>
+</html>

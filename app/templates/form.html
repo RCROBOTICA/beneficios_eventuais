@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Acervo Cartório</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div class="p-4 bg-dark fixed-bottom"></div>
+
+<!-- ESSA DIV REFERE-SE A FAIXA DA PARTE SUPERIOR DA TELA DE COR AZUL-->
+    <div class="p-3 mb-2 bg-info text-dark">
+        <div class="col-8 m-auto pt-2 pb-2 text-center">
+        <h3>CADASTRO DE PROTOCOLOS</h3>
+        </div>
+    </div>
+
+
+    <div class="col-8 m-auto pt-3 pb-2 text-center">
+        <a href="/" class="btn btn-outline-info">Voltar</a>
+    </div><br><br>
+<!-- AQUI INICIA O CÓDIGO DO FORMULÁRIO   -->
+<!-- <div class="container-fluid bg-info"><br>-->
+ <div class="col-8 m-auto pt-2 pb-2 text-center">
+     <div id="result"></div>
+        <form name="form" id="form" action="{% if db%}/update/{{db.id}}/{%else%}/salvarCli/{% endif %}" method="post">
+            {% csrf_token %}
+<!--        {{form.as_p}}-->
+            <div class="form-group mt-4"><b>Número do Protocolo</b></div>
+            {{form.n_do_protocolo}}
+            <div class="form-group mt-4"><b>Apresentante</b></div>
+            {{form.apresentante}}
+            <div class="form-group mt-4"><b>Status</b></div>
+            {{form.status}}
+            <div class="form-group mt-4"><b>Código</b></div>
+            {{form.codigo}}<br><br>
+         <input type="submit" class="btn btn-outline-warning" value="Salvar">
+      </form>
+    </div>
+
+    {% load static %}
+    <script src="{% static 'javascript.js' %}"></script>
+
+</body>
+</html>
